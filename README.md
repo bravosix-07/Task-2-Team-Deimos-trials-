@@ -6,19 +6,23 @@ In this task, we will create a Global Path Planner Plugin that uses A* search al
 Software prerequisites : Ros Noetic, turtlebot3 repo cloned in the /src folder of catkin workspace, map files created in task 1 to autonmously navigate turtlebot3 upon.
 
 Blueprint :
+
    1. We create a global path planner plugin 
             
    2. We integrate it with ROS and turtlebot3.
             
    3. We use it to autonomously navigate on the map defined in Task-1 using RViz.
 
+
 Here are the steps to follow :
+
 
    1. Create a package named global_planner in our catkin workspace
 
           cd ~/catkin_ws
       
           catkin_create_pkg my_global_planner roscpp costmap_2d base_local_planner nav_core pluginlib
+
 
    2. Creating a header file and a /.cpp file for our planner that uses A* search algorithm.
       
@@ -99,11 +103,21 @@ Here are the steps to follow :
                };
             };
 
+      
 
-   3. Now, we create a "global_planner.cpp" file that will contain our algorithm :
-     
 
-   4. We will now integrate our package with ROS as a plugin :
+   4. Now, we create a "global_planner.cpp" file that will contain our algorithm .
+
+      In that file, copy-paste the code given in the src/global_planner/src/global_planner.cpp given in the repo.
+
+      OR 
+
+      Just download the "global_planner.cpp" from the repo and place in the src/global_planner/src/ directory
+
+      
+
+
+   5. We will now integrate our package with ROS as a plugin :
  
        Open the CMAkeLists.txt file in the global_planner package and add this line :
       
@@ -128,10 +142,13 @@ Here are the steps to follow :
 
       Check the successful creation of the plugin using this command :
 
+
             rospack plugins --attrib=plugin nav_core
 
 
-  5. Configuring files for using the plugin for path planning in the autonomous navigation 
+
+
+  6. Configuring files for using the plugin for path planning in the autonomous navigation 
 
        Open the turtlebot3_navigation folder and go to move_base.launch file in the /launch folder and add this line :
 
@@ -144,16 +161,23 @@ Here are the steps to follow :
        After making sure that the files in "turtlebot3/turtlebot3_navigation/param" and "turtlebot3/turtlebot3_navigation/launch" are same as the ones provided, then proceed to the final step.
 
 
+
+
+
    7. Running the pre-defined map of task-1 with our custom global planner as a pluging for path planning
 
        Make sure to place "hospital_map.pgm" and "hospital_map.yaml" on your /HOME  (They are provided in the repo, download them)
 
        Run the following commands to launch gazebo world and RViz with turtlebot3 :
 
+
             export TURTLEBOT3_MODEL=burger
             roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
             export TURTLEBOT3_MODEL=burger
-            roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/hospital_map.yaml           
+            roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/hospital_map.yaml
+      
+
+       Now you use the 2D pose estimate and 2D Nav goal in RViz to autonomously navigate your turtlebot3 in the hospital map.          
 
          
       
