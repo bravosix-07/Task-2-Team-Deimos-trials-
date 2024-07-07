@@ -3,7 +3,8 @@ This repo is for the task 2 of software trials of Team Deimos.
 
 In this task, we will create a Global Path Planner Plugin that uses A* search algorithm for autonomous naviagtion of the turtlebot3. 
 
-Software prerequisites : Ros Noetic, turtlebot3 repo cloned in the /src folder of catkin workspace, map files created in task 1 to autonmously navigate turtlebot3 upon.
+Software prerequisites : ROS Noetic, turtlebot3 repo cloned in the /src folder of catkin workspace, map files created in task 1 to autonmously navigate turtlebot3 upon.
+                         Basically, all you need is just the whole catkin workspace as it was created for task-1.
 
 Blueprint :
 
@@ -21,7 +22,7 @@ Here are the steps to follow :
 
           cd ~/catkin_ws
       
-          catkin_create_pkg my_global_planner roscpp costmap_2d base_local_planner nav_core pluginlib
+          catkin_create_pkg global_planner roscpp costmap_2d base_local_planner nav_core pluginlib
 
 
    2. Creating a header file and a /.cpp file for our planner that uses A* search algorithm.
