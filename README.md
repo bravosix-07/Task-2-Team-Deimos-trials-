@@ -178,7 +178,7 @@ Here are the steps to follow :
             roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/hospital_map.yaml
       
 
-       Now you use the 2D pose estimate and 2D Nav goal in RViz to autonomously navigate your turtlebot3 in the hospital map.          
+       Now you use the 2D pose estimate and 2D NavGoal in RViz to autonomously navigate your turtlebot3 in the hospital map.          
 
          
       
